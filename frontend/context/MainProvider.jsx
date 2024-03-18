@@ -1,20 +1,13 @@
-import React, { createContext } from 'react'
+import React, { createContext } from "react";
 
-export const mainProvider = createContext()
+export const mainProvider = createContext();
 
-const MainProvider = ({children}) => {
-
-    
-
+const MainProvider = ({ children }) => {
   return (
     <>
-    <mainProvider.Provider
-    value={{}}
-    >
-        {children}
-    </mainProvider.Provider>
+      <mainProvider.Provider value={{}}>{children}</mainProvider.Provider>
     </>
-  )
-}
+  );
+};
 
-export default MainProvider
+export default MainProvider;
