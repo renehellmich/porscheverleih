@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const LandingPage = () => {
-  return (
-    <div>landingpage</div>
-  )
-}
+  return <div>landingpage</div>;
+};
 
-export default LandingPage
+export default LandingPage;
