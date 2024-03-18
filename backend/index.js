@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from'mongoose';
-import dotenv from 'dotenv/config';
+import 'dotenv/config';
 import cors from 'cors';
 import multer from'multer';
 import FahrzeugRouter from './routes/fahrzeuge.js';
