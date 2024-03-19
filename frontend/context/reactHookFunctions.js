@@ -1,9 +1,13 @@
 const reactHookFunktions = {
-
     loadCars: () => {
-        fetch('http://localhost:3000/fahrzeuge/')
+
+        const cars = fetch('http://localhost:3000/fahrzeuge/')
             .then((res) => res.json())
-            .then((data) => console.log(data))
+            .then((data) => data)
+
+        console.log(cars);
+
+        return cars
     }
 }
 

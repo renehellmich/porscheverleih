@@ -10,4 +10,4 @@ const FahrzeugeSchema = new Schema({
   Verfuegbar: { type: Boolean, required: true, default: true },
 });
 
-export const Fahrzeug = mongoose.model('porscheverleih', FahrzeugeSchema, 'fahrzeuge');
+export const Fahrzeug = mongoose.model('Fahrzeug', FahrzeugeSchema, 'fahrzeuge');
