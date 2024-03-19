@@ -8,7 +8,7 @@ const MainProvider = ({ children }) => {
     const [cars, setCars] = useState([])
 
     useEffect(() => {
-        reactHookFunktions.loadCars()
+        setCars(reactHookFunktions.loadCars())
     }, [])
 
   return (
