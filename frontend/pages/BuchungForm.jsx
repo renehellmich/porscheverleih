@@ -33,10 +33,15 @@ const BuchungForm = () => {
   }
 
   const setSpecificCar = (data) => {
+    console.log(data);
     setBuchungen((prevState) => ({
       ...prevState,
       specificCar: data._id
     }))
+  }
+
+  const showEvent = (event) => {
+    console.log(event.target.value);
   }
 
   return (
@@ -46,11 +51,11 @@ const BuchungForm = () => {
         {/* <input type="date" name="Datum" /> */}
         <input type="date" name="StartDatum" required ref={startRef}/>
         <input type="date" name="EndDatum" required ref={endRef} onChange={() => loadFreeCars()}/>
-        <select name="" id="">
+        <select name="" id="" onChange={showEvent}>
           {
             cars?.map((car, index) => {
               return (
-                <option value={car.Modell} ref={carRef} onChange={() => setSpecificCar(car)}>{car.Modell}</option>
+                <option value={car._id} ref={carRef} onChange={() => setSpecificCar(car)}>{car.Modell}</option>
               )
             })
           }
