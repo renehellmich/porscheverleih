@@ -1,22 +1,30 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import BuchungForm from "../pages/BuchungForm";
+import BuchungForm from '../pages/BuchungForm';
+import NewCar from '../pages/NewCar';
+import LandingPage from '../pages/LandingPage';
+import SideBar from "../components/SideBar";
+import Cars from "../pages/Cars";
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <>
-      <Routes>
-        <Route path="/" element={""} /> {/* Startseite */}
-        <Route path="/buchungen" element={<BuchungForm />} /> {/* Buchungen */}
-        <Route path="/buchungen/:id" element={""} /> {/* Buchunge Details */}
-        <Route path="/autos" element={""} /> {/* Autos */}
-        <Route path="/autos/:id" element={""} /> {/* Auto Details */}
-      </Routes>
+      <main>
+        <aside>
+          <SideBar />
+        </aside>
+        <section className="mainSection">
+          <Routes>
+            <Route path="/" element={<LandingPage />} /> {/* Startseite */}
+            <Route path="/buchungen" element={<BuchungForm />} /> {/* Buchungen */}
+            <Route path="/buchungen/:id" element={""} /> {/* Buchunge Details */}
+            <Route path="/autos" element={<Cars />} /> {/* Autos */}
+            <Route path="/autos/:id" element={""} /> {/* Auto Details */}
+            <Route path='/autos/neu' element={<NewCar />} /> {/* Auto Details */}
+          </Routes>
+        </section>
+      </main>
     </>
   );
 }
