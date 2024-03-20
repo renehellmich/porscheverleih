@@ -18,10 +18,6 @@ const MainProvider = ({ children }) => {
             .then((data) => setCars(data))
     }, [])
 
-    useEffect(() => {
-        console.log(buchungen.specificCar);
-    }, [buchungen.specificCar])
-
   return (
     <>
       <mainContext.Provider value={{cars, setCars, freeCars, setFreeCars, buchungen, setBuchungen}}>{children}</mainContext.Provider>
