@@ -15,10 +15,15 @@ const BuchungForm = () => {
     const form = e.target;
     const formData = new FormData(form);
 
-    fetch("http://localhost:3000/buchungen", {
-      method: "POST",
-      body: formData,
-    });
+    try {
+      await fetch("http://localhost:3000/buchungen", {
+        method: "POST",
+        body: formData,
+      });
+      await loadBookedCars();
+    } catch (error) {
+      console.error("Fehler beim Absenden des Formulars:", error);
+    }
   };
 
   const loadFreeCars = () => {
@@ -59,13 +64,19 @@ const BuchungForm = () => {
   const [bookedCars, setBookedCars] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/buchungen/`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setBookedCars(data);
-      });
+    loadBookedCars();
   }, []);
+
+  const loadBookedCars = async () => {
+    try {
+      const response = await fetch(`http://localhost:3000/buchungen/`);
+      const data = await response.json();
+      console.log(data);
+      setBookedCars(data);
+    } catch (error) {
+      console.error("Fehler beim Laden der gebuchten Autos:", error);
+    }
+  };
 
   const timeConverter = (date) => {
     const dateWithoutTime = date.split("T")[0];
@@ -98,7 +109,7 @@ const BuchungForm = () => {
           <option value="">Bitte Fahrzeug auswählen</option>
           {freeCars?.map((car, index) => {
             return (
-              <option value={car._id} ref={carRef}>
+              <option key={car._id} value={car._id} ref={carRef}>
                 {car.Modell}
               </option>
             );
