@@ -10,7 +10,7 @@ import { Buchung } from "./models/buchung.js";
 const app = express();
 const mult = multer();
 
-await mongoose.connect(process.env.BACKEND_URI);
+await mongoose.connect(process.env.MONGODB_URI);
 
 const PORT = process.env.PORT;
 
