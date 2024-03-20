@@ -18,6 +18,17 @@ const MainProvider = ({ children }) => {
             .then((data) => setCars(data))
     }, [])
 
+    useEffect(() => {
+        fetch('http://localhost:3000/buchungen')
+        .then((res) => res.json())
+        .then((data) => {
+            setBuchungen((prevState) => ({
+                ...prevState,
+                data: data
+            }))
+        })
+    }, [])
+
   return (
     <>
       <mainContext.Provider value={{cars, setCars, freeCars, setFreeCars, buchungen, setBuchungen}}>{children}</mainContext.Provider>

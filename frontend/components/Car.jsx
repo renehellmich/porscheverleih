@@ -5,12 +5,14 @@ const Car = ({ data }) => {
     console.log(data);
   return (
     <>
-        <p>{data.Modell}</p>
-        <p>{data.Leistung}</p>
-        <p>{data.SerienNr}</p>
-        <p style={{backgroundColor: `${data.Farbe}`, width: '64px', height: '64px'}}></p>
-        <p>{data.Preis}€</p>
-        <p>{data.Baujahr}</p>
+        <p>Modell: {data.Modell}</p>
+        <p>Leistung in PS: {data.Leistung}</p>
+        <div>
+          <p>Farbe: </p>
+          <p style={{backgroundColor: `${data.Farbe}`, width: '64px', height: '64px'}}></p>
+        </div>
+        <p>Preis: {data.Preis}€</p>
+        <p>Baujahr: {data.Baujahr}</p>
     </>
   )
 }

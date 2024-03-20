@@ -7,9 +7,9 @@ const SideBar = () => {
 
   return (
     <>
-        <div onClick={() => {navigate('/')}}>Home</div>
-        <div onClick={() => {navigate('/buchungen')}}>Buchungen</div>
-        <div onClick={() => {navigate('/autos')}}>Autos</div>
+        <div onClick={() => {navigate('/')}} className="asideContainer">Home</div>
+        <div onClick={() => {navigate('/buchungen')}} className="asideContainer">Buchungen</div>
+        <div onClick={() => {navigate('/autos')}} className="asideContainer">Autos</div>
     </>
   )
 };
