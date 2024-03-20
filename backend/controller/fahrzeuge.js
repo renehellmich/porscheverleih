@@ -19,7 +19,7 @@ router.get("/free", async (req, res) => {
   const Buchungen = await Buchung.find({
     StartDatum : {$lte: new Date(start)},
     EndDatum: {$gte: new Date(ende)}
-  })
+  }, {Modell: 1})
   
   // const Fahrzeuge = await Fahrzeug.find({
   //   StartDatum : {$lte: new Date(start)},

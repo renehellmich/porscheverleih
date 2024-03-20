@@ -22,6 +22,7 @@ app.use(
 
 app.post("/buchungen", mult.none(), async (req, res) => {
   const buchungen = req.body;
+  console.log(buchungen);
   const buchung = new Buchung(buchungen);
   await buchung.save();
   res.status(201).json(buchung);
